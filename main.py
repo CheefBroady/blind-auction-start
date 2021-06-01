@@ -6,8 +6,20 @@ print(logo)
 
 bit_dict = {}
 other_interests = True
-highest = 0
-winner = ""
+
+
+def fing_highers_bidder(bit_dict):
+  # bit_dict = {"Anglea". 123, "James": 321}
+  highest = 0
+  winner = ""
+  for bidder in bit_dict:
+    bid_amount = bit_dict[bidder]
+    if bid_amount > highest:
+      highest = bit_dict[bidder]
+      winner = bidder
+  print(f"The winner is {winner} with a bit of {highest} €.")
+
+
 
 while other_interests:
   name = input("What is your name? ")
@@ -16,13 +28,7 @@ while other_interests:
   decission = input("Are there others, who are interested to bit? Type 'yes' or 'no' ")
   if decission == "no":
     print("Thank`s")
-    for value in bit_dict:
-      if bit_dict[value] > highest:
-        highest = bit_dict[value]
-        winner = value
-    print(f"The winner is {winner} with a bit of {highest} €.")
+    fing_highers_bidder(bit_dict)
     other_interests = False
   else:
     clear()
-    name = input("Whats your name? ")
-    bit = int(input("whats your bit? € "))
